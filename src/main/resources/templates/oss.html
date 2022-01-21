@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <th:block th:include="fragments/head.html :: headerFiles('Think - OSS')"></th:block>
+  </head>
+  
+  <body class="bg-light position-relative">
+    <!-- Done -->
+    <!-- Header Fragments -->
+    <div th:replace="fragments/header.html :: header"></div>
+
+    <div id="wrap">
+    <!-- Done -->
+      <header class="header">
+        <div class="header-wrap">
+          <div class="header-profile">
+            <div class="profile-image">
+              <img
+                src="imgs/js_log.png"
+                class="rounded-3"
+                alt="..."
+                style="width: 100%; height: 100%"
+              />
+            </div>
+            <div class="profile-intro">
+              <h3 class="fw-bold">Javascript</h3>
+              <p class="fw-bold mb-0 mt-2">
+                자바스크립트는 객체 기반의 스크립트 프로그래밍 언어다. 이 언어는
+                웹 브라우저 내에서 주로 ...
+              </p>
+              <a href="" class="link-info fw-bold">더보기...</a>
+            </div>
+          </div>
+          <div class="header-sns-list">
+            <strong style="display: inline-block; margin-bottom: 5px"
+              >Share the information</strong
+            >
+            <div class="sns-buttons">
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-twitter"></i>
+              <i class="bi bi-linkedin"></i>
+              <i class="bi bi-github"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+	  <div class="content-section border-top border-bottom border-2">
+        <section class="community-section border-end border-2">
+       		
+        </section>
+
+        <nav class="Navigator">
+          <ul class="list-buttons">
+            <li><a href="/community" class="link-primary">Community</a></li>
+            <li><a href="/location" class="link-primary">Location</a></li>
+            <li><a href="/blog" class="link-primary">Blog</a></li>
+            <li><a href="/oss" class="link-primary">Open Source</a></li>
+            <li><a href="#" class="link-primary">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      
+      <!-- Footer Fragments -->
+      <div th:replace="fragments/footer.html :: footer"></div>
+    </div>
+  </body>
+</html>
