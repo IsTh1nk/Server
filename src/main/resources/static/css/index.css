@@ -1,0 +1,178 @@
+#wrap {
+  width: 1024px;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding-top: 54px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.info-section {
+  width: 1024px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.info-header {
+  width: 80%;
+}
+
+.info-list {
+  width: 20%;
+}
+
+.info-buttons {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 10px 15px 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  height: 250px;
+  background: whitesmoke;
+}
+
+.header-profile {
+  display: flex;
+  height: 100%;
+}
+
+.profile-image {
+  box-sizing: border-box;
+  padding: 45px 25px 45px 45px;
+}
+.profile-intro {
+  box-sizing: border-box;
+  width: 300px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.profile-intro > a {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.header-sns-list {
+  width: 250px;
+  height: 35%;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.sns-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sns-buttons .bi::before {
+  font-size: 50px;
+}
+
+.sns-buttons .bi:hover {
+  cursor: pointer;
+  color: rgb(133, 170, 240);
+}
+
+.content-section {
+  width: 100%;
+  background: ghostwhite;
+  display: flex;
+}
+
+/* member-section */
+.member-section {
+  box-sizing: border-box;
+  width: 70%;
+  height: 100%;
+  background: honeydew;
+  padding: 20px;
+}
+
+.club-members {
+  width: 100%;
+  position: relative;
+}
+
+.club-members-list .list-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.club-members-list .club-members-profile {
+  display: flex;
+  box-sizing: border-box;
+  width: 50%;
+  padding: 15px;
+}
+
+.club-members-list .club-members-profile .member-profile-body {
+  margin-left: 20px;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.profile-name:hover {
+  cursor: pointer;
+}
+
+.club-members-list .club-members-profile img {
+  width: 75px;
+  height: 75px;
+}
+
+/* club members interest section */
+
+.club-members-interests .interest-item {
+  margin-left: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.club-members-interests .interest-item li {
+  cursor: pointer;
+}
+
+.content-list {
+  width: 30%;
+}
+
+.list-buttons {
+  margin-left: 30px;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.list-buttons li {
+  margin-bottom: 15px;
+}
+
+.list-buttons li a:hover {
+  cursor: pointer;
+}
+
+.footer {
+  width: 100%;
+  height: 150px;
+  background: ivory;
+}
