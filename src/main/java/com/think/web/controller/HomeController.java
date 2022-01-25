@@ -20,12 +20,14 @@ public class HomeController {
 	public String login() {
 		return "login";
 	}
-	
+
+	/*
 	@GetMapping("/community")
 	public String community() {
 		return "community";
 	}
-	
+	*/
+
 	@GetMapping("/location")
 	public String location() {
 		return "location";

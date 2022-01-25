@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <th:block th:include="fragments/head.html :: headerFiles('Think - Community')"></th:block>
+  </head>
+  <body class="bg-light position-relative">
+    <!-- Done -->
+    <!-- Header Fragments -->
+    <div th:replace="fragments/header.html :: header"></div>
+
+    <div id="wrap">
+    <!-- Done -->
+      <header class="header">
+        <div class="header-wrap">
+          <div class="header-profile">
+            <div class="profile-image">
+              <img
+                src="../imgs/js_log.png"
+                class="rounded-3"
+                alt="..."
+                style="width: 100%; height: 100%"
+              />
+            </div>
+            <div class="profile-intro">
+              <h3 class="fw-bold">Javascript</h3>
+              <p class="fw-bold mb-0 mt-2">
+                자바스크립트는 객체 기반의 스크립트 프로그래밍 언어다. 이 언어는
+                웹 브라우저 내에서 주로 ...
+              </p>
+              <a href="" class="link-info fw-bold">더보기...</a>
+            </div>
+          </div>
+          <div class="header-sns-list">
+            <strong style="display: inline-block; margin-bottom: 5px"
+              >Share the information</strong
+            >
+            <div class="sns-buttons">
+              <i class="bi bi-facebook"></i>
+              <i class="bi bi-twitter"></i>
+              <i class="bi bi-linkedin"></i>
+              <i class="bi bi-github"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+	  <div class="content-section border-top border-bottom border-2">
+        <section class="community-section border-end border-2">
+       		
+        </section>
+
+        <nav class="Navigator">
+          <ul class="list-buttons">
+            <li><a href="/community" class="link-primary">Community</a></li>
+            <li><a href="/location" class="link-primary">Location</a></li>
+            <li><a href="/blog" class="link-primary">Blog</a></li>
+            <li><a href="/oss" class="link-primary">Open Source</a></li>
+            <li><a href="#" class="link-primary">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <main class="container">
+        <div class="bg-light p-5 rounded">
+          <h1 class="text-center">Community</h1>
+        </div>
+        <div class="d-flex bd-highlight">
+          <form class="row g-3 d-flex p-2 flex-grow-1 bd-highlight justify-content-start" method="GET" th:action="@{/community/community}">
+            <div class="col-auto">
+              <label for="searchText" class="visually-hidden">Password</label>
+              <input type="text" class="form-control" id="searchText" name="searchText" th:value="${param.searchText}">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">검색</button>
+            </div>
+          </form>
+          <div class="p-2 bd-highlight">
+            <a type="button" class="btn btn-primary" th:href="@{/community/form}">베스트</a>
+          </div>
+          <div class="p-2 bd-highlight">
+            <a type="button" class="btn btn-primary" th:href="@{/community/form}">글쓰기</a>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">번호</th>
+            <th scope="col">제목</th>
+            <th scope="col">작성자</th>
+            <th scope="col">등록일</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="board : ${boards}">
+            <td th:text="${board.id}">Mark</td>
+            <td ><a th:text="${board.title}" th:href="@{/community/form(id=${board.id})}">Otto</a></td>
+            <td>홍길동</td>
+            <td>2022-01-25</td>
+          </tr>
+          </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item" th:classappend="${1 == boards.pageable.pageNumber + 1} ? 'disabled'">
+              <a class="page-link" th:href="@{/community/community(page=${boards.pageable.pageNumber - 1} , searchText=${param.searchText})}">&lt;</a>
+            </li>
+            <li class="page-item" th:classappend="${i == boards.pageable.pageNumber + 1} ? 'disabled'" th:each="i :${#numbers.sequence(startPage, endPage)}">
+              <a class="page-link" href="#" th:href="@{/community/community(page=${i - 1}, searchText=${param.searchText})}" th:text="${i}">1</a>
+            </li>
+            <li class="page-item" th:classappend="${boards.totalPages == boards.pageable.pageNumber + 1} ? 'disabled'">
+              <a class="page-link" href="#" th:href="@{/community/community(page=${boards.pageable.pageNumber + 1}, searchText=${param.searchText})}">&gt;</a>
+            </li>
+          </ul>
+        </nav>
+      </main>
+      
+      <!-- Footer Fragments -->
+      <div th:replace="fragments/footer.html :: footer"></div>
+    </div>
+  </body>
+</html>
