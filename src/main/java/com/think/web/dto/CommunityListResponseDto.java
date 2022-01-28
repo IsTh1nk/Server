@@ -15,11 +15,14 @@ import javax.persistence.Id;
 public class CommunityListResponseDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; //pk
 
     @NotNull
-    private String title;
+    private String title; //게시글 제목
 
     @NotNull
-    private String content;
+    private String content; //게시글 본문
+
+    @NotNull
+    private String wdate; //글 작성 시간
 }

@@ -27,12 +27,13 @@ public class CommunityController {
 
     @GetMapping("/community")
     public String community(Model model, @PageableDefault(size = 5) Pageable pageable, @RequestParam(required = false, defaultValue="") String searchText) {
-        Page<CommunityListResponseDto> boards = communityRepository.findByTitleContainingOrContentContaining(searchText, searchText, pageable);
+        Page<CommunityListResponseDto> boards = communityRepository.findByTitleContainingOrContentContainingOrWdateContaining(searchText, searchText, searchText,pageable);
         int startPage = Math.max(1,boards.getPageable().getPageNumber() - 4);
-        int endPage = Math.max(boards.getTotalPages(), boards.getPageable().getPageNumber());
+        int endPage = Math.min(boards.getTotalPages(), boards.getPageable().getPageNumber() + 4);
         model.addAttribute("startPage",startPage);
         model.addAttribute("endPage",endPage);
         model.addAttribute("boards",boards);
+
 
         return "community/community";
     }

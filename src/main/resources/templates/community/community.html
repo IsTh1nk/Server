@@ -95,9 +95,9 @@
           <tbody>
           <tr th:each="board : ${boards}">
             <td th:text="${board.id}">Mark</td>
-            <td ><a th:text="${board.title}" th:href="@{/community/form(id=${board.id})}">Otto</a></td>
+            <td><a th:text="${board.title}" th:href="@{/community/form(id=${board.id})}">Otto</a></td>
             <td>홍길동</td>
-            <td>2022-01-25</td>
+            <td th:text="${board.wdate}">2022-01-25</td>
           </tr>
           </tbody>
         </table>

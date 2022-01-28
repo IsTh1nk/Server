@@ -34,7 +34,6 @@ public class CommunityApiController {
 
     @GetMapping("/board/{id}")
     CommunityListResponseDto one(@PathVariable Long id) {
-
         return repository.findById(id).orElse(null);
     }
 
