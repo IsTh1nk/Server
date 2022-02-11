@@ -67,7 +67,11 @@
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">본문에러</div>
             </div>
             <div class="mb-3">
-                <input class="form-control" type="file" id="formFile">
+                <ul th:each="file : ${board}">
+                    <input class="form-control" type="file" id="formFile" name="uploadfile">
+                    <li><a href="#" th:href="${'/community/download?uuid='+file.uuid+'&fileName='+file.filename}"><span th:text="${file.filename}"></span></a></li>
+
+                </ul>
             </div>
             <div class="text-end">
                 <a type="button" class="btn btn-primary" th:href="@{/community/community}">뒤로</a>

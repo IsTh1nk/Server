@@ -65,11 +65,26 @@ public class CommunityController {
     }
 
     @PostMapping("/form")
-    public String greetingSubmit(@Valid CommunityListResponseDto communityListResponseDto, BindingResult bindingResult){
+    public String greetingSubmit(@Valid CommunityListResponseDto communityListResponseDto, BindingResult bindingResult, @RequestParam(required = false) MultipartFile[] uploadfile) throws IllegalStateException, IOException{
         if (bindingResult.hasErrors()) {
             return "community/form";
         }
-        communityRepository.save(communityListResponseDto);
+        if(uploadfile == null){
+            communityRepository.save(communityListResponseDto);
+            System.out.println("aaa");
+        }else{
+            for(MultipartFile file : uploadfile){
+                communityListResponseDto.setUuid(UUID.randomUUID().toString());
+                communityListResponseDto.setFilename(file.getOriginalFilename());
+
+                communityRepository.save(communityListResponseDto);
+
+                File newFileName = new File(communityListResponseDto.getUuid() + "_" + communityListResponseDto.getFilename());
+                file.transferTo(newFileName);
+            }
+            System.out.println("bbb");
+        }
+
         return "redirect:/community/community";
     }
 
