@@ -52,8 +52,7 @@
 <main class="container">
     <div class="bg-light p-5 rounded">
         <h1>게시판</h1>
-
-        <form action="" th:action="@{/community/form}" th:object="${board}" method="post">
+        <form action="" th:action="@{/community/form}" th:object="${board}" method="post" enctype="multipart/form-data">
             <input type="hidden" th:field="*{id}">
             <div class="mb-3">
                 <label for="title" class="form-label">제목</label>
@@ -67,11 +66,50 @@
                           th:classappend="${#fields.hasErrors('content')} ? 'is-invalid'"></textarea>
                 <div class="invalid-feedback" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">본문에러</div>
             </div>
+            <div class="mb-3">
+                <input class="form-control" type="file" id="formFile">
+            </div>
             <div class="text-end">
-                <a type="button" class="btn btn-primary" th:href="@{/community/community}">취소</a>
-                <button type="submit" class="btn btn-primary">확인</button>
+                <a type="button" class="btn btn-primary" th:href="@{/community/community}">뒤로</a>
+                <button type="submit" class="btn btn-primary">삭제(미완)</button>
+                <button type="submit" class="btn btn-primary">수정(미완)</button>
+                <button type="submit" class="btn btn-primary">작성</button>
             </div>
         </form>
+        <hr>
+        <div class="input-group">
+
+        </div>
+        <div class="card-body">
+            <form class="form-horizontal">
+                <div class="row">
+                    <span class="input-group-text">댓글</span>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    <div class="form-group col-sm-2">
+                        <br>
+                        <button type="button" class="btn btn-primary btn-sm btn-block replyAddBtn">
+                            <i class="fa fa-save">댓글 작성</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">이름</th>
+                <th scope="col">댓글내용</th>
+                <th scope="col">작성일</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>홍길동</td>
+                    <td>안녕!</td>
+                <td>2022-01-25</td>
+            </tr>
+            </tbody>
+        </table>
 </main>
 
 

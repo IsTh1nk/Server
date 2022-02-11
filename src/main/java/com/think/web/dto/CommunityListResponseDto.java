@@ -25,4 +25,5 @@ public class CommunityListResponseDto {
 
     @NotNull
     private String wdate; //글 작성 시간
+
 }

@@ -93,8 +93,8 @@
           </tr>
           </thead>
           <tbody>
-          <tr th:each="board : ${boards}">
-            <td th:text="${board.id}">Mark</td>
+          <tr th:each="board,i : ${boards}">
+            <td th:text="${(i.index+1) + (NowPage*5)}"></td>
             <td><a th:text="${board.title}" th:href="@{/community/form(id=${board.id})}">Otto</a></td>
             <td>홍길동</td>
             <td th:text="${board.wdate}">2022-01-25</td>
